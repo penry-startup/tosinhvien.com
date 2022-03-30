@@ -9,6 +9,7 @@ export const createRouter = () => {
   const router = new VueRouter({
     linkActiveClass: 'active',
     mode: 'history',
+    base: 'adm',
     routes: constantsRoutes,
     scrollBehavior: to => {
       if (to.hash) {

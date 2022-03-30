@@ -11,4 +11,4 @@
 |
 */
 
-\Route::get('/{path}', 'Api\v1\CBAController')->where('path', '(.*)');
+\Route::get('/adm/{path}', 'Api\v1\HTMLController')->where('path', '(.*)');
