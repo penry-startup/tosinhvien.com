@@ -3,6 +3,9 @@ $config = [
     'appName' => config('app.name'),
     'locale'  => $locale = app()->getLocale(),
     'locales' => config('app.locales'),
+    'constants' => [
+        'university_type' => config('constants.university_type'),
+    ]
 ];
 @endphp
 <!DOCTYPE html>

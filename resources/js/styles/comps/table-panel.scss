@@ -8,6 +8,7 @@
     color: #444;
     padding: 10px;
     display: flex;
+    font-weight: bold;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e3e3e3;
@@ -25,6 +26,39 @@
     display: flex;
     justify-content: end;
     align-items: center;
+  }
+}
+
+.table-expand {
+  background: #ffffff;
+  padding: 15px 30px;
+  border-top: 1px solid #ccc;
+  margin-top: -10px;
+}
+
+.table-expand {
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #e4e7ed;
+    padding: 10px;
+    border-radius: 5px;
+    .item {
+      margin-right: 20px;
+      &:not(:last-child) {
+        border-right: 1px solid #ccc;
+        padding-right: 15px;
+      }
+    }
+    .item .label {
+      margin-bottom: 5px;
+    }
+    .item .value {
+      font-weight: 600;
+      .svg-icon {
+        margin-right: 4px;
+      }
+    }
   }
 }
 

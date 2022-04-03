@@ -28,7 +28,17 @@ export const constantsRoutes = [
     name: 'auth.profile',
     component: view('profile'),
   },
-  // Admin Routes
+  // Data Page Routes
+  {
+    path: '/data-page/university',
+    name: 'data-page.university.index',
+    component: view('university'),
+  },
+  {
+    path: '/data-page/major',
+    name: 'data-page.major.index',
+    component: view('major'),
+  },
   // Error Routes
   {
     path: '/401',
