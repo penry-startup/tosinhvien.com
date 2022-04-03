@@ -5,41 +5,25 @@ module.exports = [
     route: 'dashboard.index',
     access: 'admin',
   },
-  // ===== #{{ Videos }} ===== //
+  // ===== #{{ Data page }} ===== //
   {
-    name: 'Videos',
+    name: 'Data page',
     icon: 'catalog-fill',
     route: 'dashboard.index',
     access: 'common',
-  },
-  {
-    name: 'Contestants',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Viewers',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Categories',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Setting',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Site Management',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
+    children: [
+      {
+        name: 'University',
+        icon: 'angle-double-right',
+        route: 'data-page.university.index',
+        access: 'common',
+      },
+      {
+        name: 'Majors',
+        icon: 'angle-double-right',
+        route: 'data-page.major.index',
+        access: 'common',
+      },
+    ],
   },
 ];

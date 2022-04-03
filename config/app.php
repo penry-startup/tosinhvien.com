@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'vi',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'vi',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,7 @@ return [
          */
         App\Providers\HelperServiceProvider::class,
         App\Providers\ValidationServiceProvider::class,
+        App\Providers\GoogleDriverServiceDriver::class,
     ],
 
     /*
