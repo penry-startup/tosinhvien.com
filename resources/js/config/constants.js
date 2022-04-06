@@ -1,12 +1,7 @@
 /** @desc App configuration */
 export const CONST_APP = {
   base_api: process.env.MIX_BASE_API,
-  token_key: 'tsv-auth-token',
-};
-
-/** @desc Cookie constants */
-export const CONST_COOKIE = {
-  sject_grp: 'tsv_ckie_sject_grp',
+  token_key: 'apoly-auth-token',
 };
 
 /** @desc Axios configuration */
@@ -23,6 +18,12 @@ export const CONST_AUTH = {
 /** @desc Image Default */
 export const CONST_IMG = {
   user_empty: require('@/assets/images/default/user-empty.svg').default,
+};
+
+/** @desc ReCaptcha */
+export const CONST_RECAPTCHA = {
+  site_key: '6Lc1nsIdAAAAAP2DXyYWLPgo-uJE4tglFi2vAYCq',
+  secret_key: '6Lc1nsIdAAAAADT91DCd5iROhwp3RJHgcYzdgm7a',
 };
 
 /** @desc Pagination */

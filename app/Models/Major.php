@@ -25,12 +25,4 @@ class Major extends Model
         'dgnl_score',
         'university_id'
     ];
-
-    /**
-     * Get the University of the Major
-     */
-    public function university()
-    {
-        return $this->belongsTo(University::class);
-    }
 }

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import store from '@/store';
 import VueI18n from 'vue-i18n';
 import { bodyConfig } from '@/utils/helpers';
-import viLocale from 'element-ui/lib/locale/lang/en';
+import viLocale from 'element-ui/lib/locale/lang/vi';
 Vue.use(VueI18n);
 
 const i18n = new VueI18n({

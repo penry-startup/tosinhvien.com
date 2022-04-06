@@ -9,7 +9,6 @@ module.exports = [
   {
     name: 'Data page',
     icon: 'catalog-fill',
-    route: 'dashboard.index',
     access: 'common',
     children: [
       {
@@ -22,6 +21,20 @@ module.exports = [
         name: 'Majors',
         icon: 'angle-double-right',
         route: 'data-page.major.index',
+        access: 'common',
+      },
+    ],
+  },
+  // ===== #{{ User }} ===== //
+  {
+    name: 'User',
+    icon: 'catalog-fill',
+    access: 'common',
+    children: [
+      {
+        name: 'Students',
+        icon: 'angle-double-right',
+        route: 'user.student.index',
         access: 'common',
       },
     ],

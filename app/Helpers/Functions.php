@@ -105,3 +105,27 @@ if (! function_exists('get_placeholder_image'))
         return url("images/placeholders/no_img.png");
     }
 }
+
+if (! function_exists('get_file_version'))
+{
+    function get_file_version($file)
+    {
+        return "{$file}?v=" . date('YmdHis', filemtime(public_path($file)));
+    }
+}
+
+if (! function_exists('svg_icon'))
+{
+    function svg_icon($filename, $w = 21, $h = 21)
+    {
+        $filepath = '/assets/img/svg/'. $filename .'.svg';
+
+        if (file_exists(public_path($filepath))) {
+            $sw = $w ? 'width=' . $w . 'px' : '';
+            $sh = $h ? 'height=' . $h . 'px' : '';
+            return '<img '. $sw .' '. $sh .' src="'. $filepath .'" alt="' . $filename . '" />';
+        }
+
+        return '';
+    }
+}

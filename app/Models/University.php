@@ -23,20 +23,4 @@ class University extends BaseModel
         'phone',
         'website',
     ];
-
-    /**
-     * Get the City of the University
-     */
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    /**
-     * The the Majors of the University
-     */
-    public function majors()
-    {
-        return $this->hasMany(Major::class);
-    }
 }

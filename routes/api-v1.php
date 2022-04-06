@@ -34,4 +34,10 @@ include('backend/TestApi.php');
         //---- University Routes ----//
         \Route::get('list-city', 'StaticController@getListCity')->name('getListCity');
     });
+
+    // User Routes
+    \Route::group(['prefix' => 'user', 'as' => 'user.'], function() {
+        //---- University Routes ----//
+        // \Route::apiResource('student', 'StudentController');
+    });
 });

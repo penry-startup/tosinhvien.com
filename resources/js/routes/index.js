@@ -39,6 +39,12 @@ export const constantsRoutes = [
     name: 'data-page.major.index',
     component: view('major'),
   },
+  // Users
+  {
+    path: '/user/student',
+    name: 'user.student.index',
+    component: view('student'),
+  },
   // Error Routes
   {
     path: '/401',
