@@ -21,8 +21,19 @@
     // =========================================
     // Add Global validate method
     // =========================================
+
+    // Validate Email valid
     $.validator.addMethod('validate_email', function(value, element) {
       if (value.match(/^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]*)*@[a-zA-Z]+([a-zA-Z0-9]*(_|-|\.){0,1}[a-zA-Z0-9])+(\.[a-z]{2,4})$/)) {
+        return true;
+      }
+
+      return false;
+    }, $.validator.format("Please enter the correct value"));
+
+    // Validate Password valid
+    $.validator.addMethod('validate_password', function(value, element) {
+      if (value.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)) {
         return true;
       }
 

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Student extends BaseModel
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Student extends Authenticatable
 {
     /**
      * The database table used by the model.
@@ -13,8 +15,14 @@ class Student extends BaseModel
 
     /**
      * The attributes mass assignable.
+     *
+     * @var array
      */
     protected $fillable = [
-        ''
+        'name',
+        'sex',
+        'email',
+        'phone',
+        'password',
     ];
 }

@@ -25,9 +25,24 @@ class SignupRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|max:255',
-            'email' => 'bail|required|max:255|email|unique:students',
-            'sex' => 'bail|required|integer|in:'. implode(',', config('constants.sex.key')) .'',
+            'email' => 'bail|required|max:255|email|unique:students,email',
+            'sex' => 'bail|required|in:'. implode(',', config('constants.sex.key')) .'',
             'password' => 'bail|required|password_valid|confirmed'
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => trans('validation.custom.attributes.name'),
+            'email' => trans('validation.custom.attributes.email'),
+            'sex' => trans('validation.custom.attributes.sex'),
+            'password' => trans('validation.custom.attributes.password')
         ];
     }
 }
