@@ -47,10 +47,10 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="authTab">
-                                    <div class="tab-pane fade show active" id="signin-form" role="tabpanel" aria-labelledby="signin-form-tab">
+                                    <div class="tab-pane {{ \Request::get('tab') !== 'signup' ? 'active' : '' }}" id="signin-form" role="tabpanel" aria-labelledby="signin-form-tab">
                                         @include('client.includes.form.form-signin')
                                     </div>
-                                    <div class="tab-pane fade" id="signup-form" role="tabpanel" aria-labelledby="signup-form-tab">
+                                    <div class="tab-pane {{ \Request::get('tab') === 'signup' ? 'active' : '' }}" id="signup-form" role="tabpanel" aria-labelledby="signup-form-tab">
                                         @include('client.includes.form.form-signup')
                                     </div>
                                 </div>
@@ -63,5 +63,5 @@
     </main>
 @endsection
 @push('js')
-
+<script src="{{ get_file_version('/assets/js/views/auth.min.js') }}"></script>
 @endpush

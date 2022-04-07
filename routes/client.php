@@ -5,7 +5,7 @@ Route::group(['as' => 'client.'], function() {
     // Auth
     Route::group(['as' => 'auth.'], function() {
         Route::get('/signin', 'Client\AuthController@showSigninForm')->name('showForm.signin');
-        Route::get('/signup', 'Client\AuthController@showSinupForm')->name('showForm.signup');
+        Route::post('/signup', 'Client\AuthController@signup')->name('submit.signup');
         Route::get('/forgot-password', 'Client\AuthController@showForgotPasswordForm')->name('showForm.forgotPassword');
     });
 

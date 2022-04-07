@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Validations\Client\SignupRequest;
+use App\Repositories\Student\StudentRepository;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function __construct()
-    {
+    private $_studentRepo;
 
+    public function __construct(StudentRepository $studentRepo)
+    {
+        $this->_studentRepo = $studentRepo;
     }
 
     /**
@@ -30,5 +34,22 @@ class AuthController extends Controller
     public function showForgotPasswordForm()
     {
         return view('client.auth.forgot-password');
+    }
+
+    public function signup(SignupRequest $request)
+    {
+        try {
+            \DB::beginTransaction();
+            $student = $this->_studentRepo->store($request);
+            if ($student) {
+                \Auth::guard('student')->login($student);
+                \DB::commit();
+            }
+
+            return redirect()->route('client.home.index');
+        } catch (\Exception $e) {
+            \DB::rollback();
+            report($e);
+        }
     }
 }

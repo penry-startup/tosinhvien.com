@@ -32,6 +32,7 @@ mix.webpackConfig({
 });
 mix
   .js('resources/src/js/index.js', 'public/assets/js/bundle.min.js')
+  .js('resources/src/js/views/auth.js', 'public/assets/js/views/auth.min.js')
   .sass('resources/src/sass/views/home.scss', 'public/assets/css/views/home.min.css')
   .sass('resources/src/sass/views/auth.scss', 'public/assets/css/views/auth.min.css')
   .sass('resources/src/sass/views/profile.scss', 'public/assets/css/views/profile.min.css')
