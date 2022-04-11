@@ -11,7 +11,7 @@
             value="{{ old('name', '') }}"
         >
         @error('name')
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback server" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
@@ -24,9 +24,10 @@
             id="email-signup"
             name="email"
             placeholder="Nhập đia chỉ email"
+            value="{{ old('email', '') }}"
         >
         @error('email')
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback server" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
@@ -44,7 +45,7 @@
             <option value="3">LGBT</option>
         </select>
         @error('sex')
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback server" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
@@ -59,7 +60,7 @@
             placeholder="Nhập mật khẩu"
         >
         @error('password')
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback server" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror

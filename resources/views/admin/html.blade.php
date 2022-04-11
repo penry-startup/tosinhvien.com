@@ -5,6 +5,9 @@ $config = [
     'locales' => config('app.locales'),
     'constants' => [
         'university_type' => config('constants.university_type'),
+        'sex' => config('constants.sex'),
+        'is_active' => config('constants.is_active'),
+        'is_draft' => config('constants.is_draft')
     ]
 ];
 @endphp

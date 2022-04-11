@@ -76,5 +76,45 @@ return [
             'female' => 2,
             'lgbt'   => 3,
         ],
+    ],
+
+    /*
+     |-------------------------------------------------
+     | Define constant for active
+     |-------------------------------------------------
+     */
+    'is_active' => [
+        'label' => [
+            0 => 'Inactive',
+            1 => 'Active',
+        ],
+        'key' => [
+            'inactive' => 0,
+            'active'   => 1,
+        ],
+    ],
+
+    /*
+     |-------------------------------------------------
+     | Define constant for draft
+     |-------------------------------------------------
+     */
+    'is_draft' => [
+        'label' => [
+            0 => 'Is Real',
+            1 => 'Is Draft',
+        ],
+        'key' => [
+            'is_real'  => 0,
+            'is_draft' => 1,
+        ],
+    ],
+    /*
+     |-------------------------------------------------
+     | Define constant for Session keys
+     |-------------------------------------------------
+     */
+    'session_keys' => [
+        'prev_route_authenticate' => 'prev-route-authenticate'
     ]
 ];

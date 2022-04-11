@@ -1,18 +1,49 @@
-<form action="" class="form-wrapper">
+<form method="POST" action="{{ route('client.auth.submit.signin') }}" class="form-wrapper" data-form="signin">
+    @csrf
     <div class="form-group">
         <label for="email-signin">E-mail</label>
-        <input type="email" class="form-control shadow-none" id="email-signin" aria-describedby="email" placeholder="Nhập địa chỉ email của bạn">
+        <input
+            type="text"
+            class="form-control shadow-none @error('email') is-invalid @enderror"
+            id="email-signin"
+            name="email"
+            placeholder="Nhập đia chỉ email"
+            value="{{ old('email', '') }}"
+        >
+        @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="password-signin">Mật khẩu</label>
-        <input type="password" class="form-control shadow-none" id="password-signin" aria-describedby="password" placeholder="Nhập mật khẩu đăng nhập">
+        <input
+            type="password"
+            class="form-control shadow-none @error('password') is-invalid @enderror"
+            id="password-signin"
+            name="password"
+            placeholder="Nhập mật khẩu"
+        >
+        @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+    <div class="form-group">
+        @error('credentials_incorrect')
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="d-flex justify-content-between align-items-center">
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="remmember_me">
-            <label class="form-check-label" for="remmember_me">Nhớ đăng nhập</label>
+            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+            <label class="form-check-label" for="remember" value="on">Nhớ đăng nhập</label>
         </div>
-        <a href="{{ route('client.auth.showForm.forgotPassword') }}">Quyên mật khẩu?</a>
+        <a href="{{ route('client.auth.showForm.forgotPassword') }}">Quên mật khẩu?</a>
     </div>
     <button type="submit" class="btn btn-primary btn-block shadow-none btn-submit">Đăng nhập</button>
 </form>

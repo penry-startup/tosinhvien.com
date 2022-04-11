@@ -12,6 +12,7 @@
         element.closest('.form-group').append(error);
       },
       highlight: function (element, errorClass, validClass) {
+        $('.invalid-feedback.server').remove();
         $(element).addClass('is-invalid');
       },
       unhighlight: function (element, errorClass, validClass) {
@@ -36,6 +37,24 @@
       if (value.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)) {
         return true;
       }
+
+      return false;
+    }, $.validator.format("Please enter the correct value"));
+
+    // Validate Username valid
+    $.validator.addMethod('validate_username', function(value, element) {
+      if (/^[a-z0-9_\.]+$/.test(value)) {
+        return true;
+      }
+
+      return false;
+    }, $.validator.format("Please enter the correct value"));
+
+    // Validate Phone valid
+    $.validator.addMethod('validate_phone', function(value, element) {
+      if (value.length === 0) return true;
+      if (value[0] !== '0') return false;
+      if (value.length === 10) return true;
 
       return false;
     }, $.validator.format("Please enter the correct value"));

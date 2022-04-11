@@ -111,6 +111,12 @@ return [
     'unique'               => 'Trường :attribute đã có trong cơ sở dữ liệu.',
     'uploaded'             => 'Trường :attribute tải lên thất bại.',
     'url'                  => 'Trường :attribute không giống với định dạng một URL.',
+    // Validate custom
+    'password_valid'       => 'Password requires 8 characters including lowercase, uppercase, special characters and numbers',
+    'data_valid'           => 'The specified data is not valid.',
+    'token_valid'          => 'This password reset token is not valid.',
+    'phone_valid'          => 'Ngày sinh không hợp lệ (Khi là tháng 2 thì ngày sinh phải nhỏ hơn ngày 30)',
+    'password_old'         => 'Mật khẩu cũ bạn nhập không chính xác',
 
     /*
     |--------------------------------------------------------------------------
@@ -125,10 +131,16 @@ return [
 
     'custom' => [
         'attributes' => [
-            'name' => 'tên',
-            'email' => 'e-mail',
+            'name'     => 'Tên',
+            'username' => 'Username',
+            'email'    => 'E-mail',
+            'phone'    => 'Số điện thoại',
             'password' => 'Mật khẩu',
-            'sex' => 'Giới tính'
+            'sex'      => 'Giới tính',
+            'dob'      => 'Ngày sinh',
+            'mob'      => 'Tháng sinh',
+            'yob'      => 'Năm sinh',
+            'password_old' => 'Mật khẩu cũ'
         ],
         'required' => 'Vui lòng nhập :attribute của bạn'
     ],

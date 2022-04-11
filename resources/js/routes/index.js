@@ -39,6 +39,18 @@ export const constantsRoutes = [
     name: 'data-page.major.index',
     component: view('major'),
   },
+  // User Routes
+  {
+    path: '/user/student',
+    name: 'user.student.index',
+    component: view('student/index'),
+  },
+  // Settings Routes
+  {
+    path: '/settings/site-management',
+    name: 'settings.site_management',
+    component: view('site-management/index'),
+  },
   // Error Routes
   {
     path: '/401',
