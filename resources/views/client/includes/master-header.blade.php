@@ -14,7 +14,7 @@
 			@if(\StudentFacades::isLogin())
             <button type="button" class="btn btn-light">
 				<span>Thông báo</span>
-				<span class="badge badge-light">4</span>
+				<span class="badge badge-light">0</span>
 			</button>
 			<div class="app-bar-account">
                 <button id="profileDropdown" type="button" class="toolbar-profile__u-dropdown btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
