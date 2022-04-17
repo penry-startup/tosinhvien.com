@@ -23,6 +23,18 @@ module.exports = [
         route: 'data-page.major.index',
         access: 'common',
       },
+      {
+        name: 'Subject',
+        icon: 'angle-double-right',
+        route: 'data-page.subject.index',
+        access: 'common',
+      },
+      {
+        name: 'Subj-Cb Group',
+        icon: 'angle-double-right',
+        route: 'data-page.subject-combination-group.index',
+        access: 'common',
+      },
     ],
   },
   // ===== #{{ User Map }} ===== //

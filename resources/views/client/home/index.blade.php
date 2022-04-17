@@ -11,7 +11,7 @@
 
 @section('wrapper_content')
     @include('client.includes.master-header')
-    {{-- @include('client.includes.notifications.global') --}}
+    @include('client.includes.notifications.global')
     <main id="main-content">
         <section class="homepage-hero">
             <div class="position-absolute overflow-hidden" style="z-index: 0; top: 0; right: 0; bottom: 0; left: 0;">
@@ -26,9 +26,9 @@
                     <div class="homepage-hero__grid col-md-4">
                         <div class="row">
                             <div class="homepage-hero__tile col-md-6">
-                                <a href="" class="homepage-hub-link bg-white box-shadow-two">
-                                    <span class="icon">ICON</span>
-                                    <span class="heading">Lorem, ipsum dolor.</span>
+                                <a href="{{ route('client.public.plugins.show.CalculateGraduateScore') }}" class="homepage-hub-link bg-white box-shadow-two">
+                                    {!! svg_icon('calculate', 30, 30) !!}
+                                    <span class="heading">Tính điểm TN</span>
                                 </a>
                             </div>
                             <div class="homepage-hero__tile col-md-6">

@@ -12,7 +12,12 @@
 @section('wrapper_content')
     @include('client.includes.master-header')
     @include('client.includes.notifications.global')
-    @include('client.includes.breadcrumb-auth', ['name' => 'Đăng nhập'])
+    @include('client.includes.breadcrumb-app', [
+        'items' => [
+            'Đăng nhập, Đăng ký' => ''
+        ],
+        'title' => 'Đăng nhập'
+    ])
     <main id="main-content">
         <section>
             <div class="container">

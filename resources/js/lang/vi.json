@@ -79,7 +79,8 @@
             "meta_keywords": "Meta Keywords",
             "meta_type": "Meta Type",
             "meta_locale": "Meta Locale",
-            "meta_author": "Meta Author"
+            "meta_author": "Meta Author",
+            "description": "Description"
         }
 	},
 	"validate": {
@@ -137,7 +138,9 @@
             "university": "University",
             "major": "Major",
             "student": "Student",
-            "site_management": "Site Management"
+            "site_management": "Site Management",
+            "subject": "Subject",
+            "subjectCombinationGroup": "Subject Combination Group"
         },
         "common": {
             "cardinal_number": "No.",
@@ -161,7 +164,8 @@
             "draft": "Draft",
             "is_draft": "IsDraft",
             "is_real": "IsReal",
-            "sex": "Gender"
+            "sex": "Gender",
+            "description": "Description"
         }
     },
     "action": {
@@ -172,6 +176,8 @@
         "university": "University",
         "major": "Major",
         "student": "Student",
-        "site_management": "Site Management"
+        "site_management": "Site Management",
+        "subject": "Subject",
+        "subjectCombinationGroup": "Subject Combination Group"
     }
 }

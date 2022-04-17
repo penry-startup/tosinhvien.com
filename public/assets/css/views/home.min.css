@@ -67,6 +67,7 @@
 .homepage-hero__tile .homepage-hub-link .heading {
   color: #000;
   font-weight: bold;
+  margin-top: 7px;
 }
 .homepage-hero .homepage-signup {
   border-radius: 3px;

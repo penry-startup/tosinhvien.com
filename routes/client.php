@@ -17,6 +17,13 @@ Route::group(['as' => 'client.'], function() {
     // Home Route
     Route::get('/', 'Client\HomeController@index')->name('home.index');
 
+    // Public Route
+    Route::group(['as' => 'public.'], function() {
+        Route::group(['prefix' => 'plugins', 'as' => 'plugins.'], function() {
+            Route::get('/calculate-graduate-score', 'Client\PluginsController@calculateGraduateScore')->name('show.CalculateGraduateScore');
+        });
+    });
+
     Route::group(['middleware' => 'auth:student'], function() {
         // User Profile
         Route::group(['as' => 'user.'], function() {

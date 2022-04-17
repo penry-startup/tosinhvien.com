@@ -32,6 +32,12 @@ include('backend/TestApi.php');
 
         // Major Routes
         \Route::apiResource('major', 'MajorController');
+
+        // Subject Routes
+        \Route::apiResource('subject', 'SubjectController');
+
+        // SubjectCombination Routes
+        \Route::apiResource('subject-combination-group', 'SubjectCombinationGroupController');
     });
 
     // Static Routes
