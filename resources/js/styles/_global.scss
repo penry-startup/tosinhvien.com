@@ -55,6 +55,9 @@
       align-items: center;
     }
   }
+  &-none {
+    display: none!important;
+  }
 }
 
 .m {

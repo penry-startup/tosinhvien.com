@@ -44,4 +44,10 @@ class MajorRepository extends EloquentRepository implements MajorRepositoryInter
 
         return $builder;
     }
+
+    public function suggestByScore($score)
+    {
+        $majors = $this->all()->toArray();
+        dd($majors[0]);
+    }
 }

@@ -28,6 +28,29 @@ class ValidationServiceProvider extends ServiceProvider
 
             return false;
         });
+
+        Validator::extend('dob_valid', function($attribute, $value, $parameters, $validator) {
+            return (bool) ($parameters[0] == 2 && $value < 30);
+        });
+
+        Validator::extend('username_valid', function($attribute, $value, $parameters, $validator) {
+            if (preg_match("/^[a-z0-9_\.]+$/", $value)) {
+                return true;
+            }
+            return false;
+        });
+
+        Validator::extend('password_old', function($attribute, $value, $parameters, $validator) {
+            if (count($parameters) === 2) {
+                $table = $parameters[0];
+                $id    = $parameters[1];
+                $model = \DB::table($table)->where('id', $id)->first();
+
+                return \Hash::check($value, $model->password);
+            }
+
+            return false;
+        });
     }
 
     /**

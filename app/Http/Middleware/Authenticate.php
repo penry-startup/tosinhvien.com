@@ -13,13 +13,9 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         if ($this->authenticate($request, $guards) === self::AUTH_ERROR) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Unauthorized',
-                ],
-                Response::HTTP_UNAUTHORIZED
-            );
+            session([config('constants.session_keys.prev_route_authenticate') => request()->url()]);
+
+            return redirect()->route('client.auth.showForm.signin');
         }
 
         return $next($request);
