@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class University extends BaseModel
 {
+    use HasFactory;
+
     /**
      * The table used by the model.
      * @var string

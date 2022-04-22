@@ -85,7 +85,7 @@ class UniversityController extends Controller
                 return $this->jsonData(new UniversityResource($university));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
@@ -125,7 +125,7 @@ class UniversityController extends Controller
                 return $this->jsonMessage(trans('messages.deleted'));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }

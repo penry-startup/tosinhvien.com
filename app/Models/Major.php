@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Major extends Model
+class Major extends BaseModel
 {
+    use HasFactory;
+
     /**
      * The database table used by the model.
      * @var string

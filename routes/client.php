@@ -1,5 +1,12 @@
 <?php
+
+use App\Models\Subject;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/subject-list', function() {
+    $list = Subject::all();
+    return $list;
+});
 
 Route::group(['as' => 'client.'], function() {
     // Auth
