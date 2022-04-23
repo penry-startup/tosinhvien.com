@@ -68,7 +68,7 @@ class StudentController extends Controller
                 return $this->jsonData(new StudentResource($student));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
@@ -103,15 +103,15 @@ class StudentController extends Controller
         try {
             $student = $this->_studentRepo->find($id);
             if ($student) {
-                if ($student->is_draft === 1) {
+                if ($student->is_draft == config('constants.is_draft.key.is_draft')) {
                     $this->_studentRepo->destroy($id);
-                    return $this->jsonMessage(trans('messages.deleted'));
+                    return $this->jsonMessage(trans('messages.deleted'), true);
                 } else {
-                    return $this->jsonMessage(trans('messages.cant_delete'));
+                    return $this->jsonMessage(trans('messages.cant_delete'), false, Response::HTTP_NOT_ACCEPTABLE);
                 }
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }

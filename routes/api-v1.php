@@ -1,17 +1,9 @@
 <?php
 
 include('backend/Auth.php');
-include('backend/Public.php');
 include('backend/TestApi.php');
 
 \Route::group(['middleware' => 'auth:api'], function() {
-
-    // Vendor Routes
-    \Route::group(['prefix' => 'vendor', 'as.' => 'vendor'], function() {
-        include('backend/Merchant.php');
-        include('backend/Shop.php');
-    });
-
     // Admin Routes
     \Route::group(['prefix' => 'admin', 'as.' => 'admin'], function() {
         // CategoryGroup Routes
@@ -19,7 +11,7 @@ include('backend/TestApi.php');
         \Route::post('user/{user}/update-password', 'UserController@updatePassword')->name('user.updatePassword');
     });
 
-    \Route::group(['prefix' => 'user', 'as.' => 'user.'], function() {
+    \Route::group(['prefix' => 'user', 'as' => 'user.'], function() {
         // Student Routes
         \Route::apiResource('student', 'StudentController');
     });
@@ -36,13 +28,17 @@ include('backend/TestApi.php');
         // Subject Routes
         \Route::apiResource('subject', 'SubjectController');
 
-        // SubjectCombination Routes
+        // Subject Combination Group Routes
         \Route::apiResource('subject-combination-group', 'SubjectCombinationGroupController');
+
+
+        // SubjectCombination Routes
+        \Route::apiResource('subject-combination', 'SubjectCombinationController');
     });
 
     // Static Routes
     \Route::group(['prefix' => 'static', 'as' => 'static.'], function() {
-        // University Routes
+        // City Routes
         \Route::get('list-city', 'StaticController@getListCity')->name('getListCity');
     });
 

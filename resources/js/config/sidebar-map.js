@@ -8,7 +8,7 @@ module.exports = [
   // ===== #{{ Data Page Map }} ===== //
   {
     name: 'Data page',
-    icon: 'catalog-fill',
+    icon: 'dashboard',
     access: 'common',
     children: [
       {
@@ -24,23 +24,36 @@ module.exports = [
         access: 'common',
       },
       {
-        name: 'Subject',
+        name: 'Subject Group',
         icon: 'angle-double-right',
-        route: 'data-page.subject.index',
         access: 'common',
-      },
-      {
-        name: 'Subj-Cb Group',
-        icon: 'angle-double-right',
-        route: 'data-page.subject-combination-group.index',
-        access: 'common',
+        children: [
+          {
+            name: 'Subj Cb Group',
+            icon: 'angle-double-right',
+            route: 'data-page.subject-combination-group.index',
+            access: 'common',
+          },
+          {
+            name: 'Subj Cb',
+            icon: 'angle-double-right',
+            route: 'data-page.subject-combination.index',
+            access: 'common',
+          },
+          {
+            name: 'Subject',
+            icon: 'angle-double-right',
+            route: 'data-page.subject.index',
+            access: 'common',
+          },
+        ],
       },
     ],
   },
   // ===== #{{ User Map }} ===== //
   {
     name: 'Users',
-    icon: 'catalog-fill',
+    icon: 'dashboard',
     access: 'common',
     children: [
       {
@@ -54,7 +67,7 @@ module.exports = [
   // ===== #{{ Settings Map }} ===== //
   {
     name: 'Settings',
-    icon: 'catalog-fill',
+    icon: 'dashboard',
     access: 'common',
     children: [
       {

@@ -23,10 +23,12 @@ class SubjectRequest extends BaseRequest
      */
     public function rules()
     {
+        $data = request()->all();
         $id   = \Request::segment(count(\Request::segments()));
 
         $rules['name'] = 'required|max:255|unique:subjects,name';
-        if (!empty($id)) {
+
+        if (!empty($data['id']) && $id == $data['id']) {
             $rules['name'] = 'required|max:255|unique:subjects,name,'.$id;
         }
 

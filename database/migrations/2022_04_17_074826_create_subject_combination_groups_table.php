@@ -19,6 +19,24 @@ class CreateSubjectCombinationGroupsTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('subject_combinations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->integer('group_id')->unsigned();
+            $table->timestamps();
+
+            $table->foreign('group_id')->references('id')->on('subject_combination_groups')->onDelete('cascade');
+        });
+
+        Schema::create('group_subject', function (Blueprint $table) {
+            $table->integer('group_id')->unsigned()->index();
+            $table->integer('subject_id')->unsigned()->index();
+            $table->timestamps();
+
+            $table->foreign('group_id')->references('id')->on('subject_combinations')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+        });
     }
 
     /**
@@ -28,6 +46,8 @@ class CreateSubjectCombinationGroupsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('group_subject');
+        Schema::dropIfExists('subject_combinations');
         Schema::dropIfExists('subject_combination_groups');
     }
 }
