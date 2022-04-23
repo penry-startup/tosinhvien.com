@@ -11,7 +11,7 @@ include('backend/TestApi.php');
         \Route::post('user/{user}/update-password', 'UserController@updatePassword')->name('user.updatePassword');
     });
 
-    \Route::group(['prefix' => 'user', 'as.' => 'user.'], function() {
+    \Route::group(['prefix' => 'user', 'as' => 'user.'], function() {
         // Student Routes
         \Route::apiResource('student', 'StudentController');
     });
@@ -28,8 +28,12 @@ include('backend/TestApi.php');
         // Subject Routes
         \Route::apiResource('subject', 'SubjectController');
 
-        // SubjectCombination Routes
+        // Subject Combination Group Routes
         \Route::apiResource('subject-combination-group', 'SubjectCombinationGroupController');
+
+
+        // SubjectCombination Routes
+        \Route::apiResource('subject-combination', 'SubjectCombinationController');
     });
 
     // Static Routes

@@ -24,13 +24,14 @@ class SubjectControllerTest extends TestCaseApiV1
     public function testListSubjectSuccess()
     {
         $subjects = Subject::factory()->count(50)->create();
-        $response = $this->json('GET', route('data-page.subject.index', ['limit' => 25, 'page' => 1]))
-                        ->assertStatus(Response::HTTP_OK)
-                        ->assertJsonStructure(['data', 'count'])
-                        ->assertJson([
-                            'data'  => array_slice($subjects->toArray(), 0, 25),
-                            'count' => $subjects->count()
-                        ]);
+        $response = $this->json('GET', route('data-page.subject.index', ['limit' => 25, 'page' => 1]));
+        $response
+            ->assertStatus(Response::HTTP_OK)
+            ->assertJsonStructure(['data', 'count'])
+            ->assertJson([
+                'data'  => array_slice($subjects->toArray(), 0, 25),
+                'count' => $subjects->count()
+            ]);
 
         $this->assertTrue($response['success']);
     }

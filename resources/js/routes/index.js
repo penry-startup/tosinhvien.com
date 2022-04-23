@@ -49,6 +49,11 @@ export const constantsRoutes = [
     name: 'data-page.subject-combination-group.index',
     component: view('subject-combination-group'),
   },
+  {
+    path: '/data-page/subject-combination',
+    name: 'data-page.subject-combination.index',
+    component: view('subject-combination'),
+  },
   // User Routes
   {
     path: '/user/student',
