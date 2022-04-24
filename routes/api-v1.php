@@ -27,9 +27,11 @@ include('backend/TestApi.php');
 
         // Subject Routes
         \Route::apiResource('subject', 'SubjectController');
+        \Route::get('subject/list/get-all', 'SubjectController@getAll')->name('subject.getAll');
 
         // Subject Combination Group Routes
         \Route::apiResource('subject-combination-group', 'SubjectCombinationGroupController');
+        \Route::get('subject-combination-group/list/get-all', 'SubjectCombinationGroupController@getAll')->name('subject-combination-group.getAll');
 
 
         // SubjectCombination Routes

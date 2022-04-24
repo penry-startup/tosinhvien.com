@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
-use Google\Service\HangoutsChat\Card;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use ListHelper;
 

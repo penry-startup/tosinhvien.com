@@ -209,7 +209,7 @@ export default {
     },
     onDestroy(id) {
       this.$confirm(this.$t('confirms.permanently_delete.singular', {
-        model: (this.$t('model.subjectCombinationGroupResource')).toLowerCase(),
+        model: (this.$t('model.subjectCombinationGroup')).toLowerCase(),
       }), {
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
@@ -223,7 +223,7 @@ export default {
           this.$message({
             showClose: true,
             message: this.$t('messages.permanently_deleted.singular', {
-              model: (this.$t('model.subjectCombinationGroupResource')).toLowerCase(),
+              model: (this.$t('model.subjectCombinationGroup')).toLowerCase(),
             }),
             type: 'success',
           });

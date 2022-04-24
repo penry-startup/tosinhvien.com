@@ -39,6 +39,23 @@ class SubjectController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getAll()
+    {
+        try {
+            $subjects = $this->_subjectRepo->all(['id', 'name']);
+
+            return $this->jsonData($subjects->toArray());
+        } catch (\Exception $e) {
+            return $this->jsonError($e);
+        }
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
