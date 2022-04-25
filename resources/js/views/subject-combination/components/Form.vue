@@ -28,13 +28,13 @@
                 v-for="group in groups"
                 :key="group.id"
                 :label="group.name"
-                :value="+group.id"
+                :value="group.id"
               />
             </el-select>
           </el-form-item>
 
           <!-- Subjects Selection -->
-          <el-form-item :label="$t('form.field.subjects')" prop="subjects" :error="getErrorForField('subjects', errorsServer)" required>
+          <el-form-item :label="$t('form.field.subjects')" prop="subjects" :error="getErrorForField('subjects', errorsServer)">
             <el-select
               v-model="form.subjects"
               class="w-100"
@@ -48,7 +48,7 @@
                 v-for="subject in subjects"
                 :key="subject.id"
                 :label="subject.name"
-                :value="+subject.id"
+                :value="subject.id"
               />
             </el-select>
           </el-form-item>
@@ -141,17 +141,9 @@ export default {
         group_id: [
           {
             required: true,
+            type: 'number',
             message: this.$t('validate.required', {
               field: this.$t('form.field.group'),
-            }),
-            tiggers: ['change', 'blur'],
-          },
-        ],
-        subjects: [
-          {
-            required: true,
-            message: this.$t('validate.required', {
-              field: this.$t('form.field.subjects'),
             }),
             tiggers: ['change', 'blur'],
           },
@@ -173,18 +165,23 @@ export default {
   },
   methods: {
     async setup() {
-      const [groupRes, subjectRes] = await Promise.all([
-        subjectCombinationGroupResource.getAll(),
-        subjectResource.getAll(),
-      ]);
+      try {
+        const [groupRes, subjectRes] = await Promise.all([
+          subjectCombinationGroupResource.getAll(),
+          subjectResource.getAll(),
+        ]);
 
-      this.groups = groupRes.data.data;
-      this.subjects = subjectRes.data.data;
+        this.groups = groupRes.data.data;
+        this.subjects = subjectRes.data.data;
+      } catch (e) {
+        // ...
+      }
     },
     getItem(id) {
       subjectCombinationResource.get(id)
         .then(({ data: { data }}) => {
           this.form = data;
+          this.form.subjects = this.form.subjects.map(item => +item.id);
           this.$emit('open');
         })
         .catch(_ => {

@@ -35,4 +35,12 @@ class Major extends BaseModel
     {
         return $this->belongsTo(University::class);
     }
+
+    /**
+     * Get Subject Group By the Major
+     */
+    public function subject_combinations()
+    {
+        return $this->belongsToMany(SubjectCombination::class, 'major_subject_combination');
+    }
 }

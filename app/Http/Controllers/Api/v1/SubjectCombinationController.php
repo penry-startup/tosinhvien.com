@@ -27,7 +27,6 @@ class SubjectCombinationController extends Controller
     {
         try {
             $subjectCombinations = $this->_subjectCombinationRepo->list($request);
-
             return $this->jsonTable([
                 'data'  => SubjectCombinationResource::collection($subjectCombinations),
                 'total' => ($subjectCombinations->toArray())['total']

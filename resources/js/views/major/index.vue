@@ -84,7 +84,15 @@
 
           <el-table-column :label="$t('table.common.subject_group')" width="250">
             <template slot-scope="{ row }">
-              <div class="heading">{{ row.subject_group }}</div>
+              <template v-if="subjectGroupMatched(row)">
+                <el-tag
+                  v-for="subject_combination in row.subject_combinations"
+                  :key="subject_combination.id"
+                  :style="{ marginRight: '5px', marginBottom: '2px' }"
+                >
+                  {{ subject_combination.name }}
+                </el-tag>
+              </template>
             </template>
           </el-table-column>
 
@@ -199,6 +207,15 @@ export default {
         this.table.loading = true;
         const { data } = await majorResource.list(this.table.listQuery);
         this.table.list = data.data;
+        /**
+         * Comment out code for test
+         */
+        // const dataTest = [...this.table.list].filter(item => {
+        //   return item.subject_combinations.map(item => item.name.toLowerCase()).join('; ') !== item.subject_group.toLowerCase();
+        // });
+        // // console.log(dataTest.length, this.table.list.length);
+        // console.log(dataTest);
+        // console.log(this.table.list);
         this.table.total = data.count;
         this.isRefresh = false;
         this.table.loading = false;
@@ -262,6 +279,15 @@ export default {
           this.table.loading = false;
         }
       }).catch(_ => {});
+    },
+    subjectGroupMatched(row) {
+      const groupArray = row.subject_combinations.map(item => item.name.toLowerCase());
+      const groupArrayMatch = row.subject_group.toLowerCase().split('; ');
+      if (groupArray.length === groupArrayMatch.length) {
+        return groupArray.every(item => groupArrayMatch.includes(item));
+      }
+
+      return false;
     },
   },
 };

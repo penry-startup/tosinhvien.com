@@ -12,27 +12,6 @@ class SubjectCombinationGroupRepository extends EloquentRepository implements Su
         return \App\Models\SubjectCombinationGroup::class;
     }
 
-    public function store(Request $request)
-    {
-        $subjectCb = parent::store($request);
-        $this->_syncSubjects($subjectCb, $request->input('subjects', []));
-
-        return $subjectCb;
-    }
-
-    public function update(Request $request, $id)
-    {
-        $subjectCb = parent::update($request);
-        $this->_syncSubjects($subjectCb, $request->input('subjects', []));
-
-        return $subjectCb;
-    }
-
-    public function _syncSubjects($subjectCb, array $subjects)
-    {
-        return $subjectCb->subjects()->sync($subjects);
-    }
-
     public function list(Request $request)
     {
         $limit     = $request->get('limit', config('constants.pagination.limit'));

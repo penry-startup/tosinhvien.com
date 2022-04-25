@@ -66,12 +66,12 @@ class SubjectCombinationControllerTest extends TestCaseApiV1
     public function testStoreSubjectCombinationSuccess()
     {
         $group = SubjectCombinationGroup::factory()->create();
-        $subjects = Subject::factory()->count(10)->create();
+        $subjects = Subject::factory()->count(10)->create()->pluck('id')->toArray();
 
         $formData = [
             'name'       => $this->faker->name(),
             'group_id'   => $group->id,
-            'subjects'   => $subjects->toArray()
+            'subjects'   => $subjects
         ];
 
         $response = $this->json('POST', route('data-page.subject-combination.store'), $formData);
@@ -146,11 +146,13 @@ class SubjectCombinationControllerTest extends TestCaseApiV1
                                                 ->state(['group_id' => $group->id])
                                                 ->has(Subject::factory()->count(10))
                                                 ->create();
+        $subjects = Subject::factory()->count(20)->create()->pluck('id')->toArray();
 
         $formData = [
             'id'       => $subject_combination->id,
             'name'     => $this->faker->name(),
             'group_id' => $group_update->id,
+            'subjects' => $subjects,
         ];
 
         $response = $this->json('PUT', route('data-page.subject-combination.update', $subject_combination->id), $formData);

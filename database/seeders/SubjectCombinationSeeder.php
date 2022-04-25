@@ -16,49 +16,74 @@ class SubjectCombinationSeeder extends Seeder
     {
         \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         \DB::table('subject_combinations')->truncate();
+        \DB::table('group_subject')->truncate();
+        \DB::table('major_subject_combination')->truncate();
         \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        $group_a = \DB::table('subject_combination_groups')->where('name', 'Khối A')->first();
 
-        $subject_combinations = [
-            'A00' => [1, 2, 3],
-            'A01' => [1, 2, 67],
-            'A02' => [1, 2, 5],
-            'A03' => [1, 2, 6],
-            'A04' => [1, 2, 7],
-            'A05' => [1, 3, 6],
-            'A06' => [1, 3, 7],
-            'A07' => [1, 6, 7],
-            'A08' => [1, 6, 8],
-            'A09' => [1, 9, 8],
-            'A10' => [1, 16, 8],
-            'A11' => [1, 11, 8],
-            'A12' => [1, 12, 13],
-            'A14' => [1, 12, 7],
-            'A15' => [1, 12, 8],
-            'A16' => [1, 12, 15],
-            'A17' => [1, 16, 13],
-            'A18' => [1, 3, 13],
-        ];
+        $subject_groups = json_decode(file_get_contents(app_path('../database/json/subject_combinations.json')), true);
 
-        $now = Carbon::now();
-        foreach ($subject_combinations as $key => $item) {
-            \DB::table('subject_combinations')->insert([
-                'name'       => $key,
-                'group_id'   => $group_a->id,
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+        $group_names = [];
+        foreach ($subject_groups as $name => $subjects) {
+            $group_name  = 'Khối ' . ucfirst(mb_substr($name, 0, 1));
+            if (empty($group_names[$group_name])) {
+                $group_names[$group_name] = 1;
+            }
         }
 
-        $subject_combinations_db = \DB::table('subject_combinations')->whereIn('name', array_keys($subject_combinations))->pluck('id', 'name')->toArray();
+        $subjC_grps_db = \DB::table('subject_combination_groups')->whereIn('name', array_keys($group_names))->pluck('id', 'name')->toArray();
 
-        foreach ($subject_combinations as $key => $subjects) {
+        $subject_unique = [];
+        foreach ($subject_groups as $group => $subjects) {
+            foreach ($subjects as $subject) {
+                if (empty($subject_unique[$subject])) {
+                    $subject_unique[$subject] = 1;
+                }
+            }
+        }
+        $subjects_db = \DB::table('subjects')->whereIn('name', array_keys($subject_unique))->pluck('id', 'name')->toArray();
+
+        $date_now = Carbon::now();
+        $i = 1;
+        foreach ($subject_groups as $name => $subjects) {
+            $group_name  = 'Khối ' . ucfirst(mb_substr($name, 0, 1));
+            \DB::table('subject_combinations')->insert([
+                'id'         => $i,
+                'name'       => $name,
+                'group_id'   => $subjC_grps_db[$group_name],
+                'created_at' => $date_now,
+                'updated_at' => $date_now
+            ]);
+
             foreach ($subjects as $subject) {
                 \DB::table('group_subject')->insert([
-                    'group_id'   => $subject_combinations_db[$key],
-                    'subject_id' => $subject,
-                    'created_at' => $now,
-                    'updated_at' => $now
+                    'group_id'   => $i,
+                    'subject_id' => $subjects_db[$subject],
+                    'created_at' => $date_now,
+                    'updated_at' => $date_now
+                ]);
+            }
+
+            $i++;
+        }
+
+        // Insert Pivot table major_subject_combination
+        $majors_db = \DB::table('majors')->pluck('subject_group', 'id')->toArray();
+
+        foreach ($majors_db as $id => $subject_group) {
+            // if ($id == 1280) {
+            //     $subject_group_arr = explode('; ', $subject_group);
+            //     // dd($subject_group_arr);
+            //     $subjects_cb_db = \DB::table('subject_combinations')->whereIn('name', $subject_group_arr)->pluck('id', 'name')->toArray();
+            // }
+            $subject_group_arr = explode('; ', $subject_group);
+            $subjects_cb_db = \DB::table('subject_combinations')->whereIn('name', $subject_group_arr)->pluck('id', 'name')->toArray();
+
+            foreach ($subjects_cb_db as $subject_cb_db) {
+                \DB::table('major_subject_combination')->insert([
+                    'major_id'               => $id,
+                    'subject_combination_id' => $subject_cb_db,
+                    'created_at'             => $date_now,
+                    'updated_at'             => $date_now
                 ]);
             }
         }

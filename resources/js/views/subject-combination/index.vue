@@ -84,15 +84,13 @@
 
           <el-table-column :label="$t('table.common.subjects')" width="450">
             <template slot-scope="{ row }">
-              <router-link
+              <el-tag
                 v-for="subject in row.subjects"
                 :key="subject.id"
-                to="/"
-                tag="el-tag"
-                :style="{ marginRight: '5px', cursor: 'pointer' }"
+                :style="{ marginRight: '5px', marginBottom: '2px' }"
               >
                 {{ subject.name }}
-              </router-link>
+              </el-tag>
             </template>
           </el-table-column>
 
