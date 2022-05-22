@@ -32,9 +32,9 @@ class AuthController extends Controller
             $request->request->add([
                 'username'      => $request->email,
                 'password'      => $request->password,
-                'grant_type'    => 'password',
                 'client_id'     => config('services.passport.client_id'),
                 'client_secret' => config('services.passport.client_secret'),
+                'grant_type'    => 'password',
             ]);
 
             return $this->_getToken($request);

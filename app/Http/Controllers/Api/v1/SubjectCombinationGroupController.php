@@ -39,6 +39,23 @@ class SubjectCombinationGroupController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getAll()
+    {
+        try {
+            $subjectCombinationGroup = $this->_subjectCombinationGroupRepo->all(['id', 'name']);
+
+            return $this->jsonData($subjectCombinationGroup);
+        } catch (\Exception $e) {
+            return $this->jsonError($e);
+        }
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,7 +86,7 @@ class SubjectCombinationGroupController extends Controller
                 return $this->jsonData(new SubjectCombinationGroupResource($subjectCombinationGroup));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
@@ -109,7 +126,7 @@ class SubjectCombinationGroupController extends Controller
                 return $this->jsonMessage(trans('messages.deleted'));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }

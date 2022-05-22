@@ -80,7 +80,9 @@
             "meta_type": "Meta Type",
             "meta_locale": "Meta Locale",
             "meta_author": "Meta Author",
-            "description": "Description"
+            "description": "Description",
+            "group": "Group",
+            "subjects": "Subjects"
         }
 	},
 	"validate": {
@@ -140,7 +142,8 @@
             "student": "Student",
             "site_management": "Site Management",
             "subject": "Subject",
-            "subjectCombinationGroup": "Subject Combination Group"
+            "subjectCombinationGroup": "Subject Combination Group",
+            "subjectCombination": "Subject Combination"
         },
         "common": {
             "cardinal_number": "No.",
@@ -165,7 +168,9 @@
             "is_draft": "IsDraft",
             "is_real": "IsReal",
             "sex": "Gender",
-            "description": "Description"
+            "description": "Description",
+            "group": "Group",
+            "subjects": "Subjects"
         }
     },
     "action": {
@@ -178,6 +183,7 @@
         "student": "Student",
         "site_management": "Site Management",
         "subject": "Subject",
-        "subjectCombinationGroup": "Subject Combination Group"
+        "subjectCombinationGroup": "Subject Combination Group",
+        "subjectCombination": "Subject Combination"
     }
 }

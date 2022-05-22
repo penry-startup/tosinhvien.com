@@ -69,7 +69,7 @@ class MajorController extends Controller
                 return $this->jsonData(new MajorResource($major));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
@@ -109,7 +109,7 @@ class MajorController extends Controller
                 return $this->jsonMessage(trans('messages.deleted'));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }

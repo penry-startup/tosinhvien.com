@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Validations\Admin;
 
 use App\Http\Requests\BaseRequest;
+use Illuminate\Http\Request;
 
 class UniversityRequest extends BaseRequest
 {
@@ -24,19 +25,19 @@ class UniversityRequest extends BaseRequest
     public function rules()
     {
         $data = request()->all();
-        $id = \Request::segment(count(\Request::segments()));
+        $id   = \Request::segment(count(\Request::segments()));
 
         $rules = [
             'name'    => 'bail|required|max:255',
             'code'    => 'bail|required|max:255',
             'city_id' => 'bail|required|integer',
-            'type'    => 'bail|in:'. implode(',', config('constants.university_type.key')) .'',
-            'phone'   => 'bail|phone_valid|unique:universities',
-            'website' => $data['website']  ? 'url' : '',
+            'type'    => 'bail|required|in:'. implode(',', config('constants.university_type.key')) .'',
+            'phone'   => 'bail|nullable|phone_valid|unique:universities',
+            'website' => 'nullable|url',
         ];
 
-        if (!empty($id)) {
-            $rules['phone'] = 'bail|phone_valid|unique:universities,phone,'.$id;
+        if (!empty($data['id']) && $id == $data['id']) {
+            $rules['phone'] = 'bail|nullable|phone_valid|unique:universities,phone,' . $data['id'];
         }
 
         return $rules;

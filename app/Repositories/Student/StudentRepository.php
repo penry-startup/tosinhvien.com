@@ -2,9 +2,11 @@
 
 namespace App\Repositories\Student;
 
+use App\Models\Student;
 use App\Repositories\EloquentRepository;
 use App\Services\QueryService;
 use Illuminate\Http\Request;
+use RuntimeException;
 
 class StudentRepository extends EloquentRepository implements StudentRepositoryInterface
 {
@@ -37,5 +39,15 @@ class StudentRepository extends EloquentRepository implements StudentRepositoryI
         $builder = $builder->paginate($limit);
 
         return $builder;
+    }
+
+    public function randomeUsername(Student $student)
+    {
+        if ($student) {
+            $hash = generate_random_string(8);
+            return strtolower($student->name) . '.' . $student->id . $hash;
+        } else {
+            throw new RuntimeException('Student does not instanceof \App\Models\Student');
+        }
     }
 }

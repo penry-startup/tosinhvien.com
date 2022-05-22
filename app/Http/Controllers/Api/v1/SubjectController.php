@@ -39,6 +39,23 @@ class SubjectController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getAll()
+    {
+        try {
+            $subjects = $this->_subjectRepo->all(['id', 'name']);
+
+            return $this->jsonData($subjects->toArray());
+        } catch (\Exception $e) {
+            return $this->jsonError($e);
+        }
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,7 +86,7 @@ class SubjectController extends Controller
                 return $this->jsonData(new SubjectResource($subject));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
@@ -109,7 +126,7 @@ class SubjectController extends Controller
                 return $this->jsonMessage(trans('messages.deleted'));
             }
 
-            return $this->jsonMessage(trans('messages.not_found'), Response::HTTP_NOT_FOUND);
+            return $this->jsonMessage(trans('messages.not_found'), false, Response::HTTP_NOT_FOUND);
         } catch (\Exception $e) {
             return $this->jsonError($e);
         }
