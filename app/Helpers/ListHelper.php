@@ -53,7 +53,7 @@ class ListHelper
     {
         $siteManagement = (new SiteManagementRepository)->find(1);
 
-        if ($field) {
+        if ($siteManagement && $field) {
             return $siteManagement->$field;
         }
 
