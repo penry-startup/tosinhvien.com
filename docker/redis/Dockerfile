@@ -1,5 +1,5 @@
 ARG REDIS_VERSION
-FROM redis:${MARIADB_VERSION}
+FROM redis:${REDIS_VERSION}
 
 LABEL maintainer="phamdinhhung28.it@gmail.com"
 
