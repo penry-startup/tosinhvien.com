@@ -16,6 +16,7 @@ return [
     'dir' => [
         'default' => 'images',
         'category_groups' => 'uploads/category_groups',
+        'site_management' => 'uploads/system',
     ],
 
     /*
@@ -116,8 +117,8 @@ return [
         |
         */
         'logo' => [
-            'w' => 80,
-            'h' => 80,
+            'w' => 60*2,
+            'h' => 160*2,
             'fit' => 'contain'
         ],
         'logo_lg' => [
@@ -152,6 +153,16 @@ return [
         'blog' => [
             'w' => 1280,
             'h' => 450,
+            'fit' => 'crop'
+        ],
+        'favicon' => [
+            'w' => 50,
+            'h' => 50,
+            'fit' => 'crop'
+        ],
+        'banner' => [
+            'w' => 1425,
+            'h' => 436,
             'fit' => 'crop'
         ],
     ]

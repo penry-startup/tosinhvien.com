@@ -5,41 +5,77 @@ module.exports = [
     route: 'dashboard.index',
     access: 'admin',
   },
-  // ===== #{{ Videos }} ===== //
+  // ===== #{{ Data Page Map }} ===== //
   {
-    name: 'Videos',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
+    name: 'Data page',
+    icon: 'dashboard',
     access: 'common',
+    children: [
+      {
+        name: 'University',
+        icon: 'angle-double-right',
+        route: 'data-page.university.index',
+        access: 'common',
+      },
+      {
+        name: 'Majors',
+        icon: 'angle-double-right',
+        route: 'data-page.major.index',
+        access: 'common',
+      },
+      {
+        name: 'Subject Group',
+        icon: 'angle-double-right',
+        access: 'common',
+        children: [
+          {
+            name: 'Subj Cb Group',
+            icon: 'angle-double-right',
+            route: 'data-page.subject-combination-group.index',
+            access: 'common',
+          },
+          {
+            name: 'Subj Cb',
+            icon: 'angle-double-right',
+            route: 'data-page.subject-combination.index',
+            access: 'common',
+          },
+          {
+            name: 'Subject',
+            icon: 'angle-double-right',
+            route: 'data-page.subject.index',
+            access: 'common',
+          },
+        ],
+      },
+    ],
   },
+  // ===== #{{ User Map }} ===== //
   {
-    name: 'Contestants',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
+    name: 'Users',
+    icon: 'dashboard',
     access: 'common',
+    children: [
+      {
+        name: 'Student',
+        icon: 'angle-double-right',
+        route: 'user.student.index',
+        access: 'common',
+      },
+    ],
   },
+  // ===== #{{ Settings Map }} ===== //
   {
-    name: 'Viewers',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
+    name: 'Settings',
+    icon: 'dashboard',
     access: 'common',
-  },
-  {
-    name: 'Categories',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Setting',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
-  },
-  {
-    name: 'Site Management',
-    icon: 'catalog-fill',
-    route: 'dashboard.index',
-    access: 'common',
+    children: [
+      {
+        name: 'Site Management',
+        icon: 'angle-double-right',
+        route: 'settings.site_management',
+        access: 'common',
+      },
+    ],
   },
 ];

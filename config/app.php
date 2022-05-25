@@ -181,6 +181,7 @@ return [
          */
         App\Providers\HelperServiceProvider::class,
         App\Providers\ValidationServiceProvider::class,
+        // App\Providers\GoogleDriverServiceDriver::class,
     ],
 
     /*
@@ -235,7 +236,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'StudentFacades' => App\Student\Facades\StudentFacades::class,
 
     ],
 

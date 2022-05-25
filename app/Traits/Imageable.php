@@ -135,6 +135,16 @@ trait Imageable
         return $this->morphOne(\App\Models\Image::class, 'imageable')->where('type', 'logo');
     }
 
+    public function faviconImage()
+    {
+        return $this->morphOne(\App\Models\Image::class, 'imageable')->where('type', 'favicon');
+    }
+
+    public function bannerImage()
+    {
+        return $this->morphOne(\App\Models\Image::class, 'imageable')->where('type', 'banner');
+    }
+
     public function deleteImageTypeOf($type)
     {
         if ($type) {

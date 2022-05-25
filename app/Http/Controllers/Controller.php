@@ -21,7 +21,7 @@ class Controller extends BaseController
     public function jsonData($data = [], int $status = Response::HTTP_OK): JsonResponse
     {
         return response()->json([
-            'status' => true,
+            'success' => true,
             'data' => $data,
         ], $status);
     }

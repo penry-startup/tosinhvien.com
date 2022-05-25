@@ -1615,3 +1615,4 @@ export default {
   transition: opacity 1.2s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out;
 }
 </style>
+

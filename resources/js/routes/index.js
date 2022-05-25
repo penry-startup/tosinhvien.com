@@ -28,7 +28,44 @@ export const constantsRoutes = [
     name: 'auth.profile',
     component: view('profile'),
   },
-  // Admin Routes
+  // Data Page Routes
+  {
+    path: '/data-page/university',
+    name: 'data-page.university.index',
+    component: view('university'),
+  },
+  {
+    path: '/data-page/major',
+    name: 'data-page.major.index',
+    component: view('major'),
+  },
+  {
+    path: '/data-page/subject',
+    name: 'data-page.subject.index',
+    component: view('subject'),
+  },
+  {
+    path: '/data-page/subject-combination-group',
+    name: 'data-page.subject-combination-group.index',
+    component: view('subject-combination-group'),
+  },
+  {
+    path: '/data-page/subject-combination',
+    name: 'data-page.subject-combination.index',
+    component: view('subject-combination'),
+  },
+  // User Routes
+  {
+    path: '/user/student',
+    name: 'user.student.index',
+    component: view('student/index'),
+  },
+  // Settings Routes
+  {
+    path: '/settings/site-management',
+    name: 'settings.site_management',
+    component: view('site-management/index'),
+  },
   // Error Routes
   {
     path: '/401',

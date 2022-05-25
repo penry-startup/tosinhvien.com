@@ -1,66 +1,30 @@
 {
 	"app": {
-		"name": "Home Callback"
+		"name": "To Sinh Vien"
 	},
+    "title": {
+        "general_settings": "General Settings",
+        "support_settings": "Support Settings",
+        "social_settings": "Social Settings",
+        "meta_settings": "Meta Settings"
+    },
 	"view": {
 		"or": "Hoặc",
 		"auth": {
-			"login_to_continue": "Đăng nhập để tiếp tục:",
-			"cant_login": "Không thể đăng nhập?",
-			"register_merchant": "Đăng ký tài khoản người bán",
-			"login_with_social": "Đăng nhập với mạng xã hội",
-			"login_button": "Đăng nhập",
-			"login_google": "Đăng nhập với Google",
-			"login_facebook": "Đăng nhập với Facebook",
-			"privacy_policy": "Chính sách bảo mật",
-			"user_notice": "Thông báo với bạn",
-			"remember_me": "Lưu đăng nhập",
-			"send_recovery_link": "Gửi liên kết khôi phục",
-			"return_to_login": "Trở về trang đăng nhập",
-			"resend_recovery_link": "Gửi lại liên kết khôi phục",
-			"resend_recovery_link_success": "Chúng tôi đã gửi một liên kết khôi phục cho bạn tại",
-			"choose_new_password": "Chọn một mật khẩu mới",
-            "logout": "Đăng xuất"
-		},
-		"merchant_welcome": {
-			"heading": "Xây dựng một cửa hàng chuyên nghiệp",
-			"sub_heading": "Home Callback không chỉ là trung tâm thương mại. Home Callback cung cấp các nhà kinh doanh một nơi để lập kế hoạch bán hàng, cộng tác về sản phẩm, thử nghiệm và sáng tạo.",
-			"plan_and_pricing": {
-				"heading": "Kế hoạch và giá cả",
-				"sub_heading": "Chọn một đăng ký phù hợp nhất với nhu cầu của bạn."
-			},
-			"register": {
-				"title": "Đăng ký tài khoản",
-				"heading": "Hồ Sơ Cá Nhân",
-				"sub_heading": "Quý khách hàng vui lòng điền thông tin chính xác trên giấy tờ tùy thân. Thông này sẽ là cơ sở để xác thực thông tin khi đăng ký tài khoản"
-			},
-			"choose_plan": "Chọn kế hoạch"
+			"login_to_continue": "Login to continue:",
+			"cant_login": "Cant't login?",
+			"login_button": "Login",
+			"remember_me": "Save login",
+			"send_recovery_link": "Send recovery link",
+			"return_to_login": "Back to login page",
+			"resend_recovery_link": "Resend recovery link",
+			"resend_recovery_link_success": "We have sent you a recovery link at",
+			"choose_new_password": "Choose a new password",
+            "logout": "Logout"
 		},
         "layout": {
-            "store_front": "Cửa hàng",
-            "profile": "Hồ sơ"
+            "profile": "Profile"
         }
-	},
-	"field": {
-		"email": "email",
-		"password": "mật khẩu",
-		"password_confirmation": "xác nhận mật khẩu",
-		"phone": "số điện thoại",
-		"country": "quốc gia",
-		"full_name": "họ và tên",
-		"birthday": "sinh nhật",
-		"day": "ngày",
-		"month": "tháng",
-		"year": "năm",
-		"sex": "giới tính",
-		"male": "nam",
-		"female": "nữ",
-		"address_line": "địa chỉ liên hệ",
-		"state": "tỉnh/thành phố",
-		"plan": "kế hoạch",
-        "category_name": "tên danh mục",
-        "order": "thứ tự",
-        "slug": "url seo"
 	},
 	"form": {
         "title": {
@@ -68,105 +32,158 @@
             "confirm": "Confirm"
         },
 		"placeholder": {
-			"enter": "Nhập {field}",
-			"select": "Chọn {field}"
+			"enter": "Enter {field}",
+			"select": "Select {field}"
 		},
         "field": {
-            "category_name": "Tên danh mục",
-            "order": "Thứ tự",
-            "slug": "URL chuyển hướng",
-            "status": "Trạng thái",
-            "active": "Hoạt động",
-            "inactive": "Không hoạt động",
-            "description": "Mô tả",
-            "background_image": "Hình nền",
-            "cover_image": "Ảnh bìa",
-            "logo_image": "Ảnh logo",
-            "pick_a_image": "Chọn một bức ảnh",
-            "meta_title": "Tiêu đề SEO",
-            "meta_description": "Mô tả SEO",
             "name": "Name",
-            "email": "Email"
+            "code": "Code",
+            "type": "Type",
+            "city": "City",
+            "phone": "Phone",
+            "website": "Website",
+            "address": "Address",
+            "url": "Url",
+            "subject_group": "Subject group",
+            "thpt_score": "THPT Score",
+            "hocba_score": "HOCBA Score",
+            "dgnl_score": "DGNL Score",
+            "university": "University",
+            "email": "Email",
+            "sex": "Gender",
+            "is_active": "Active",
+            "is_draft": "Draft",
+            "password": "Password",
+            "brand_name": "Brand name",
+            "brand_logo": "Brand logo",
+            "favicon": "Favicon",
+            "banner": "Banner",
+            "pick_a_image": "Pick a image",
+            "greeting": "Greeting",
+            "global_notification": "Global Intification",
+            "top_slogan": "Top Slogan",
+            "sub_top_slogan": "Sub Top Slogan",
+            "maintenance_mode": "Maintenance Mode",
+            "support_phone": "Support Phone",
+            "support_email": "Support Email",
+            "default_sender_email_address": "Default Sender Email Address",
+            "default_email_sender_name": "Default Email Sender Name",
+            "facebook_link": "Facebook Link",
+            "facebook_fanpage_link": "Facebook Fanpage Link",
+            "zalo_phone": "Zalo Phone",
+            "zalo_group_link": "Zalo Group Link",
+            "instagram_link": "Instagram Link",
+            "youtube_link": "Youtube Link",
+            "meta_title": "Meta Title",
+            "meta_description": "Meta Description",
+            "meta_keywords": "Meta Keywords",
+            "meta_type": "Meta Type",
+            "meta_locale": "Meta Locale",
+            "meta_author": "Meta Author",
+            "description": "Description",
+            "group": "Group",
+            "subjects": "Subjects"
         }
 	},
 	"validate": {
-		"required": "⚠ Vui lòng nhập {field}",
-		"email_valid": "⚠ Địa chỉ email không hợp lệ",
-		"password_valid": "⚠ Mật khẩu yêu cầu phải tồn tại ký từ viết thường, viết hoa và số",
+		"required": "⚠ Please enter {field}",
+		"email_valid": "⚠ Invalid email address",
+		"password_valid": "⚠ Password requires lowercase, uppercase and number characters",
 		"password": {
-			"lowercase": "⚠ Trường {field} phải chứa ít nhất {number} ký tự chữ cái viết thường",
-			"uppercase": "⚠ Trường {field} phải chứa ít nhất {number} ký tự chữ cái viết hoa",
-			"number": "⚠ Trường {field} phải chứa ít nhất {number} ký tự số number",
-			"special_character": "⚠ Trường {field} phải chứa ít nhất {number} một ký tự đặc biệt"
+			"lowercase": "⚠ The {field} field must contain at least {number} lowercase alphabetic characters",
+			"uppercase": "⚠ The {field} field must contain at least {number} uppercase letter characters",
+			"number": "⚠ The {field} field must contain at least {number} numeric characters",
+			"special_character": "⚠ The {field} field must contain at least {number} one special character"
 		},
 		"min": {
-            "numeric": "⚠ Trường {field} phải tối thiểu là {min}.",
-			"string": "⚠ Trường {field} phải có tối thiểu {min} ký tự."
+            "numeric": "⚠ The {field} field must be at least {min}.",
+			"string": "⚠ The {field} field must have at least {min} characters."
 		},
         "max": {
-			"string": "⚠ Trường {field} không được lớn hơn {max} ký tự."
+			"string": "⚠ The {field} field cannot be larger than {max} characters."
 		},
-        "confirmed": "⚠ Mật khẩu không trùng khớp."
+        "numeric": "⚠ The {field} must be a numeric value",
+        "confirmed": "⚠ Password does not match.",
+        "valid_format": "⚠ Please enter the correct {field} format"
 	},
 	"button": {
-		"register": "Đăng ký",
-		"continue": "Tiếp tục",
-        "create": "Tạo mới",
-        "update": "Cập nhật"
+		"register": "Registration",
+		"continue": "Continue",
+        "create": "Create new",
+        "update": "Update"
 	},
     "confirms": {
         "permanently_delete": {
-            "singular": "Xác nhận xóa vĩnh viễn {model} này ?",
-            "many": "Xác nhận xóa vĩnh viễn danh sách {model} này ?"
+            "singular": "Confirm permanent deletion of this {model} ?",
+            "many": "Confirm permanent deletion of this list {model} ?"
         },
-        "restore": {
-            "singular": "Xác nhận khôi phục {model} này ?",
-            "many": "Xác nhận khôi phục danh sách {model} này ?"
-        },
-        "toggle_status": "Xác nhận chuyển trạng thái nhóm danh mục thành {status}"
+        "toggle_status": "Confirm category group status change to {status}"
     },
 	"messages": {
 		"title": {
-			"success": "Thành công",
-			"re_captcha": "Re-Captcha"
+			"success": "Successful"
 		},
-		"login_successfully": "Đăng nhập thành công!",
-		"verify_recaptcha": "Vui lòng xác minh Re-Captcha",
-        "reset_password_successfully": "Cập nhật mật khẩu mới thành công!",
+		"login_successfully": "Logged in successfully!",
+        "reset_password_successfully": "Update new password successfully!",
         "permanently_deleted": {
-            "singular": "Đã xóa vĩnh viễn thành công {model}",
-            "many": "Đã xóa vĩnh viễn thành công danh sách {model}"
+            "singular": "Successfully permanently deleted {model}",
+            "many": "Successfully deleted list {model}"
         },
-        "restored": {
-            "singular": "Đã khôi phục thành công {model}",
-            "many": "Đã khôi phục thành công danh sách {model}"
-        },
-        "cancel_action": "Tác vụ đã bị hủy",
-        "created": "Thêm {model} thành công",
-        "updated": "Cập nhật {model} thành công",
-        "status_updated": "Cập nhật trạng thái {model} thành công"
+        "cancel_action": "The task has been canceled",
+        "created": "Add {model} successfully",
+        "updated": "Update {model} successfully",
+        "status_updated": "Status update {model} successful"
 	},
     "table": {
         "title": {
-            "profile": "Profile"
+            "profile": "Profile",
+            "university": "University",
+            "major": "Major",
+            "student": "Student",
+            "site_management": "Site Management",
+            "subject": "Subject",
+            "subjectCombinationGroup": "Subject Combination Group",
+            "subjectCombination": "Subject Combination"
         },
         "common": {
-            "cardinal_number": "STT",
-            "background_image": "Hình nền",
-            "cover_image": "Ảnh bìa",
-            "order": "Thứ tự",
-            "status": "Trạng thái",
-            "action": "Hành động",
-            "list": "Danh sách",
-            "options": "options",
-            "permanently_delete": "Xóa vĩnh viễn",
-            "deleted_at": "Ngày xóa"
+            "cardinal_number": "No.",
+            "name": "Name",
+            "code": "Code",
+            "type": "Type",
+            "city": "City",
+            "action": "Action",
+            "created_at": "Created at",
+            "updated_at": "Updated at",
+            "majors_count": "Majors count",
+            "subject_group": "Subject group",
+            "thpt_score": "THPT Score",
+            "hocba_score": "HOCBA Score",
+            "dgnl_score": "DGNL Score",
+            "university": "University",
+            "email": "E-mail",
+            "phone": "Phone",
+            "active": "Active",
+            "inactive": "InActive",
+            "draft": "Draft",
+            "is_draft": "IsDraft",
+            "is_real": "IsReal",
+            "sex": "Gender",
+            "description": "Description",
+            "group": "Group",
+            "subjects": "Subjects"
         }
     },
     "action": {
-        "add": "Thêm {model}"
+        "add": "Create {model}"
     },
     "model": {
-        "user": "User"
+        "user": "User",
+        "university": "University",
+        "major": "Major",
+        "student": "Student",
+        "site_management": "Site Management",
+        "subject": "Subject",
+        "subjectCombinationGroup": "Subject Combination Group",
+        "subjectCombination": "Subject Combination"
     }
 }
